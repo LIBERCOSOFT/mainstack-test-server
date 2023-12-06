@@ -121,7 +121,7 @@ $ npm run server
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-- [Yiponline](https://www.yiponline.com/)
+- [Mainstack](https://www.mainstack.co)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
