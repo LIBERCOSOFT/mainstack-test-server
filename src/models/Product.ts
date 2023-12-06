@@ -14,7 +14,9 @@ const productSchema = new Schema<IProduct>({
   description: { type: String },
   quantity: { type: Number, required: true },
   category: { type: String, required: true },
-});
+},
+  { timestamps: true }
+);
 
 const Product = mongoose.model<IProduct>('Product', productSchema);
 

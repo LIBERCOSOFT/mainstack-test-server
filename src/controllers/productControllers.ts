@@ -24,8 +24,7 @@ const createProduct = asyncHandler(async (req: Request, res: Response) => {
 });
 
 const getOneProduct = asyncHandler(async (req: Request, res: Response) => {
-  const { id } = req.params;
-
+  const id = req.query.id as string;
   try {
     const product = await Product.findById(id);
     if (!product) {
@@ -61,9 +60,11 @@ const getAllProducts = asyncHandler(async (req: Request, res: Response) => {
   }
 });
 
-const editProduct = asyncHandler(async (req: Request, res: Response) => {
+const updateProduct = asyncHandler(async (req: Request, res: Response) => {
+  const id = req.query.id as string;
+
   try {
-    const updatedProduct = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const updatedProduct = await Product.findByIdAndUpdate(id, req.body, { new: true });
     if (!updatedProduct) {
       res.status(404).json({
         message: 'Product not found'
@@ -83,17 +84,20 @@ const editProduct = asyncHandler(async (req: Request, res: Response) => {
 });
 
 const deleteProduct = asyncHandler(async (req: Request, res: Response) => {
+  const id = req.query.id as string;
+
   try {
-    const product = await Product.findByIdAndDelete(req.params.id);
+    const product = await Product.findByIdAndDelete(id);
     if (!product) {
       res.status(404).json({
         message: 'Product not found'
       });
       return;
     }
-    res.status(204).json({
-      message: 'Product successfully deleted'
+    res.json({
+      message: 'Product successfully deleted',
     });
+    res.status(204);
   } catch (error) {
     console.error(error);
     res.status(500).json({
@@ -102,4 +106,4 @@ const deleteProduct = asyncHandler(async (req: Request, res: Response) => {
   }
 });
 
-export { createProduct, getOneProduct, getAllProducts, editProduct, deleteProduct };
+export { createProduct, getOneProduct, getAllProducts, updateProduct, deleteProduct };
