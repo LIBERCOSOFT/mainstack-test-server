@@ -5,9 +5,9 @@ import { createProduct, getAllProducts, getOneProduct, updateProduct, deleteProd
 
 import { authenticate } from '../middlewares/authmiddleware';
 
-router.route('/one').get(getOneProduct)
-  .put(updateProduct)
-  .delete(deleteProduct);
+router.route('/one').get(authenticate, getOneProduct)
+  .put(authenticate, updateProduct)
+  .delete(authenticate, deleteProduct);
 
 router.route('/').post(authenticate, createProduct)
   .get(authenticate, getAllProducts);
