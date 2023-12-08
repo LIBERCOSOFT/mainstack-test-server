@@ -10,6 +10,6 @@ router.route('/one').get(getOneProduct)
   .delete(deleteProduct);
 
 router.route('/').post(authenticate, createProduct)
-  .get(getAllProducts);
+  .get(authenticate, getAllProducts);
 
 export default router;
