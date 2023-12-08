@@ -17,7 +17,7 @@
 
 # 📖 Server <a name="about-project"></a>
 
-**Transportation system** is a transportation Queue. On the left is a table with the list of delivery for customers, showing customer ID, Customer Name, Pick Up location, Drop off Location, on the right is a planner, showing Date, Slot 1 , Slot 2, Slot 3, Slot 4, the planner shows 7 days after the current date. So, the logistic company can drag customers from the Logistic Queue to the planner for each slot and it is saved to the database.
+**Server** is a simple CRUD (Create, Read, Update, Delete) application that manages the product in a store coupled with user authentication.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -27,33 +27,36 @@
   <summary>Server</summary>
   <ul>
     <li><a href="https://nodejs.org/en">NodeJS</a></li>
+    <li><a href="https://www.typescriptlang.org">Typescript</a></li>
     <li><a href="https://expressjs.com">ExpressJS</a></li>
     <li><a href="https://www.mongodb.com/atlas/database">MongoDB</a></li>
     <li><a href="https://mongoosejs.com">Mongoose</a></li>
+    <li><a href="https://www.docker.com">Docker</a></li>
   </ul>
 </details>
 
 ### Key Features <a name="key-features"></a>
 
-- **Persist a new delivery task**
-- **Retrieve all delivery tasks**
-- **Delete a saved delivery task**
-- **Persist a new slotted delivery task**
-- **Retrieve all slotted delivery tasks**
-- **Delete a saved slotted delivery task**
+- **Persist a new product**
+- **Retrieve all products**
+- **Delete a saved product**
+- **Retrieve one product**
+- **Create new user**
+- **Authenticate a saved user**
+- **Logout a saved user**
   
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-[Live Demo Link](https://transport-system-backedn.onrender.com)
+[Live Demo Link](https://mainstack-test-server.onrender.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> To start and run this project
+> To start and run this project with npm
 ```
 npm install
 ```
@@ -63,6 +66,25 @@ npm run server
 ```
 visit http://localhost:5050
 ```
+
+> To start and run this project with docker
+- Build a docker image first, use this command:
+```
+docker build -t mainstack-server .
+```
+- Run your docker container with this command:
+```
+docker run -p 5050:5050 -d mainstack-server
+```
+- Check your container logs with the container id you got from the above command with this command:
+```
+sudo docker logs 'container-id'
+```
+- Visit the server below:
+```
+http://localhost:5050
+```
+
 To get a local copy up and running, follow these steps.
 
 ### Prerequisites
@@ -78,7 +100,7 @@ To setup and install this sample ROR Blog project, follow the below steps:
 - Clone this project by the command: 
 
 ```
-$ git clone https://github.com/LIBERCOSOFT/transport_system_server.git
+$ git clone hhttps://github.com/LIBERCOSOFT/mainstack-test-server
 ```
 
 - Then switch to the project folder by the below query:
@@ -86,7 +108,8 @@ $ git clone https://github.com/LIBERCOSOFT/transport_system_server.git
 ```
 $ cd transport_system_server
 ```
-
+- Create and fill a '.env' file using the .env.example
+  
 - Install npm dependencies with the command below:
 ```
 $ npm install
@@ -113,8 +136,8 @@ $ npm run server
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
-- [ ] **Implement authentication for multiple users**
-- [ ] **Implement more security and validations**
+- [ ] **Add an accounting feature to calculate cost of all products**
+- [ ] **Add an inventory functionality to add and remove from number of a product's stock**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
